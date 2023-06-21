@@ -10,7 +10,7 @@ const CharDetail = () => {
     axios
       .get("https://rickandmortyapi.com/api/character")
       .then((res) => {
-        setChar(res.data.results.splice(6, 6));
+        setChar(res.data.results.splice(12, 6));
         console.log(res.data.results)
       })
       .catch((err) => {
