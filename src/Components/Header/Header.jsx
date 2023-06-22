@@ -4,11 +4,10 @@ import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import Button from "@mui/material/Button";
-import { Avatar, Typography } from "@mui/material";
+import { Avatar } from "@mui/material";
 import logo from "/images/logo.png";
-import StarIcon from "@mui/icons-material/Star";
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
-console.log(logo);
 const navItems = ["Docs", "About"];
 
 function DrawerAppBar() {
@@ -53,7 +52,7 @@ function DrawerAppBar() {
               color="warning"
               sx={{ display: { sm: "none", xs: "inline-block" } }}
             >
-              <StarIcon fontSize="small" />
+              <FavoriteIcon fontSize="small"  />
             </Button>
           </Box>
         </Toolbar>
