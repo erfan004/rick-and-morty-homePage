@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card , CardContent , CardMedia , CardHeader, Typography , Link } from '@mui/material'
+import { Card , CardContent , CardMedia , Typography , Link } from '@mui/material'
 import CircleIcon from '@mui/icons-material/Circle';
 import styled from '@emotion/styled';
 const MyLink = styled(Link)({
@@ -15,7 +15,7 @@ const MyCircleIcon = styled(CircleIcon)({
 })
 export const CharCard = ({char}) => {
 
-  let lifeStatus = <MyCircleIcon fontSize='10px'/>
+  let lifeStatus = <MyCircleIcon fontSize='small'/>
   if(char.status == 'Alive'){
     lifeStatus = <MyCircleIcon sx={{color : '#55CC44'}} /> 
   }
@@ -28,10 +28,10 @@ export const CharCard = ({char}) => {
 
   return (
     <div>
-        <Card sx={{display:'flex' , backgroundColor:'#3C3E44'}}>
+        <Card sx={{display:'flex' ,flexDirection : {md : 'row' , sm : 'column' , xs : 'column'} ,  backgroundColor:'#3C3E44'}}>
             <CardMedia 
             component='img'
-            sx={{width:200}}
+            sx={{width: {md : '200px' , sm : '100%' , xs : '100%'}}}
             image={char.image}
             />
                 <CardContent sx={{color : '#f5f5f5'}}>

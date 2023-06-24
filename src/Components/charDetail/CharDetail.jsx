@@ -20,7 +20,7 @@ const CharDetail = () => {
 
   return (
     <div>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} bgcolor={'#272B33'} padding={'15px'}>
         {Char.map((item) => (
           <Grid item xl={4} md={6} xs={12} lg={6} key={item.id}>
             <CharCard char={item} />
