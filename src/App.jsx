@@ -2,12 +2,14 @@ import React from "react";
 import Header from "./Components/Header/Header";
 import CharDetail from "./Components/charDetail/CharDetail";
 import SiteLabel from "./Components/siteLabel/SiteLabel";
-const App = (props) =>{
+import Footer from "./Components/footer/Footer";
+const App = () =>{
   return(
     <div>
       <Header />
       <SiteLabel />
       <CharDetail />
+      <Footer />
     </div>
   )
 }

@@ -15,7 +15,7 @@ const MyCircleIcon = styled(CircleIcon)({
 })
 export const CharCard = ({char}) => {
 
-  let lifeStatus = <MyCircleIcon fontSize='small'/>
+  let lifeStatus = <MyCircleIcon/>
   if(char.status == 'Alive'){
     lifeStatus = <MyCircleIcon sx={{color : '#55CC44'}} /> 
   }
@@ -28,10 +28,10 @@ export const CharCard = ({char}) => {
 
   return (
     <div>
-        <Card sx={{display:'flex' ,flexDirection : {md : 'row' , sm : 'column' , xs : 'column'} ,  backgroundColor:'#3C3E44'}}>
+        <Card sx={{display:'flex' ,flexDirection : {md : 'row' , sm : 'row' , xs : 'column'} ,  backgroundColor:'#3C3E44'}}>
             <CardMedia 
             component='img'
-            sx={{width: {md : '200px' , sm : '100%' , xs : '100%'}}}
+            sx={{width: {md : '200px' , sm : '200px' , xs : '100%'}}}
             image={char.image}
             />
                 <CardContent sx={{color : '#f5f5f5'}}>
