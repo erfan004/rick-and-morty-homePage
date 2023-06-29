@@ -1,30 +1,19 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import { Grid } from "@mui/material";
 import { CharCard } from "../CharCard/CharCard";
-import { useQuery } from "@tanstack/react-query";
+import { connect } from "react-redux";
+import {getDataFromApi} from '../../stateManagement/actions/actions'
 
-const CharDetail = () => {
-  const [Char, setChar] = useState([]);
+const CharDetail = ({Char , isLoading , isError , getAll}) => {
 
-  const fetchCharacters = async () => {
-    const res = await axios.get("https://rickandmortyapi.com/api/character");
-    if (res) {
-      setChar(res.data.results.splice(12, 6));
-      return Char;
-    } else {
-      setChar([]);
-    }
-  };
-  const charQuery = useQuery({
-    queryKey: ["characters"],
-    queryFn: () => fetchCharacters(),
-  });
+  useEffect(()=>{
+    getAll()
+  } , [])
 
   let charEl;
-  if (charQuery.isError) {
+  if (isError) {
     charEl = <h2>fetching data has been failed try again later</h2>;
-  } else if (charQuery.isLoading) {
+  } else if (isLoading) {
     charEl = <h2>loading ...</h2>;
   } else {
     charEl = (
@@ -39,4 +28,16 @@ const CharDetail = () => {
   }
   return <div>{charEl}</div>;
 };
-export default CharDetail;
+function mapStateToProps(state){
+  return { 
+    Char : state.charState.items,
+    isLoading : state.charState.isLoading,
+    isError : state.charState.isError
+  }
+}
+function mapDispatchToProps(dispatch){
+return {
+  getAll : ()=> getDataFromApi(dispatch)
+}
+}
+export default connect(mapStateToProps , mapDispatchToProps)(CharDetail);
