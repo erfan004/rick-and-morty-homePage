@@ -31,8 +31,8 @@ const CharDetail = ({Char , isLoading , isError , getAll}) => {
 function mapStateToProps(state){
   return { 
     Char : state.charState.items,
-    isLoading : state.charState.isLoading,
-    isError : state.charState.isError
+    isLoading : state.charState.loading,
+    isError : state.charState.error
   }
 }
 function mapDispatchToProps(dispatch){
